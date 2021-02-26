@@ -1,0 +1,5 @@
+---
+
+- import_tasks:
+  - 01-install.yml
+  - 02-config.yml

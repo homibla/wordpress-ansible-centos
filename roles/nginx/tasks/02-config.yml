@@ -1,0 +1,6 @@
+---
+
+- name: Copy Wordpress Nginx
+  template:
+  src: template/wordpress.conf
+  dest: /etc/nginx/conf.d/
