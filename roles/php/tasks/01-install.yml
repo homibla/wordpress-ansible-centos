@@ -5,13 +5,12 @@
 
 - name: Install Repo PHP
   command: yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
-
+  ignore_errors: yes
 - name: Enable Repo PHP
   command: yum-config-manager --enable remi-php72
 
 - name: Install PHP
-  command: yum install php-cli php-fpm php-mysql php-json php-opcache php-mbstring php-xml php-gd php-curl
-
+  command: yum install php-cli php-fpm php-mysql php-json php-opcache php-mbstring php-xml php-gd php-curl -y
 - name: Start php
   service: 
    name: php-fpm

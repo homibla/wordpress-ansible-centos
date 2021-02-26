@@ -2,5 +2,8 @@
 
 - name: Create DB
   mysql_db:
+   login_user: root
+   login_password: t4p1S|asuli
+   login_unix_socket: /var/lib/mysql/mysql.sock   
    name: wordpress
    state: present

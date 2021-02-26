@@ -5,6 +5,7 @@
   become_user: root
 
   roles:
-  - nginx
-  - mysql
-  - php
+#  - nginx
+#  - mysql
+   - php
+   - wordpress

@@ -2,5 +2,8 @@
 - name: Download wordpress
   unarchive:
     src: https://wordpress.org/latest.tar.gz
-    dest: /var/www/html/wordpress
+    dest: /var/www/html/
+    owner: nginx
+    group: nginx
+    mode: 0755
     remote_src: yes

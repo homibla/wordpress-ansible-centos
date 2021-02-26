@@ -1,9 +1,12 @@
 ---
 
 - name: Copy www.conf
-  template:
+  copy:
    src: templates/www.conf
    dest: /etc/php-fpm.d/
-
+- name: restart wordpress
+  service:
+   name: php-fpm
+   state: started
 - name: change priv folder php
   command: chown -R root:nginx /var/lib/php
