@@ -1,0 +1,33 @@
+---
+- name: Stop Mysql
+  service:
+   name: mysqld
+   state: stopped
+
+- name: Allow Root Passless MYSql
+  command: systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
+
+- name: Start Mysql
+  service:
+   name: mysqld
+   state: Started
+
+- name: Create Wordpress User
+  mysql_user:
+     login_user: root
+     login_unix_socket: /var/lib/mysql/mysql.sock
+     name: wordpress
+     password: wordpress
+     priv: 'wordpress.*:ALL'
+     state: present
+
+- name: Stop Mysql
+  command: systemctl stop mysqld
+
+- name: Disallow passless root login
+  command: systemctl unset-environment MYSQLD_OPTS
+
+- name: Start Mysql
+  service:
+   name: mysqld
+   state: started  

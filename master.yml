@@ -6,5 +6,5 @@
 
   roles:
   - nginx
-  - mysql
+  #- mysql
   - php

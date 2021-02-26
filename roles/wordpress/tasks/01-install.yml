@@ -1,0 +1,6 @@
+---
+- name: Download wordpress
+  unarchive:
+    src: https://wordpress.org/latest.tar.gz
+    dest: /var/www/html/wordpress
+    remote_src: yes

@@ -4,3 +4,16 @@
   template:
   src: template/wordpress.conf
   dest: /etc/nginx/conf.d/
+
+- name: check conf
+  command: nginx -t
+  register: check_conf
+
+- name: permission
+  command: chown -R nginx: /var/www/html/
+
+- name: restart nginx to apply conf
+  service:
+   name: nginx
+   state: restarted
+  when check_conf.rc == "0"

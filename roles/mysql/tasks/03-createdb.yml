@@ -1,0 +1,6 @@
+---
+
+- name: Create DB
+  mysql_db:
+   name: wordpress
+   state: present

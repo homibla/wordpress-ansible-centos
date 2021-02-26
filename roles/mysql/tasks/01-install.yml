@@ -1,0 +1,13 @@
+---
+
+- name: Enable MySQL repo
+  command: yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm -y
+
+- name: Install MySQL
+  command: yum install mysql-community-server -y
+
+- name: Start MySQL
+  service:
+   name: mysqld
+   state: started
+   enabled: yes

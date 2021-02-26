@@ -1,0 +1,9 @@
+---
+
+- name: Copy www.conf
+  template:
+   src: templates/www.conf
+   dest: /etc/php-fpm.d/
+
+- name: change priv folder php
+  command: chown -R root:nginx /var/lib/php
